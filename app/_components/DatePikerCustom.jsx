@@ -1,8 +1,21 @@
 'use client'
 import React, { useState } from 'react';
-import { startOfMonth, startOfWeek, endOfMonth, endOfWeek, addDays, addMonths, subMonths, format, isSameMonth, isSameDay, isBefore, isAfter } from 'date-fns';
+import { 
+    startOfMonth, 
+    startOfWeek, 
+    endOfMonth, 
+    endOfWeek, 
+    addDays, 
+    addMonths, 
+    subMonths, 
+    format, 
+    isSameMonth, 
+    isSameDay, 
+    isBefore, 
+    isAfter 
+} from 'date-fns';
 
-const Calendar = () => {
+const Calendar = ({busyDays}) => {
     const [currentDate, setCurrentDate] = useState(new Date());
 
     const renderHeader = () => {
@@ -55,8 +68,9 @@ const Calendar = () => {
                 const cloneDay = day;
                 days.push(
                     <div
-                        className={`cursor-pointer shadow-[5px_5px_0px_0px_rgba(109,40,217)]  text-center w-20 h-20 flex justify-center items-center font-bold rounded-md   m-2 border ${!isSameMonth(day, monthStart) ? 'text-gray-400' : ''
-                            } ${isSameDay(day, currentDate) ? 'bg-violet-800 text-white ' : (isBefore(day, monthStart) || isAfter(day, monthEnd)) ? 'bg-violet-300 text-gray-800 ' : 'bg-white text-gray-800 hover:bg-violet-200'}`}
+                        className={` shadow-[5px_5px_0px_0px_rgba(109,40,217)]  text-center w-20 h-20 flex justify-center items-center font-bold rounded-md   m-2 border ${!isSameMonth(day, monthStart) ? 'text-gray-400' : ''
+                            } ${isSameDay(day, currentDate) ? 'bg-violet-800 text-white cursor-pointer ' : (isBefore(day, monthStart) || isAfter(day, monthEnd)) ? 'bg-violet-300 text-gray-800 cursor-pointer' : busyDays.includes(day.toDateString()) ? 'cursor-not-allowed bg-gray-800 text-gray-200 cursor-not-allowed' :
+                                            'cursor-pointer bg-white text-gray-800 hover:bg-violet-200 bg-white text-gray-800 hover:bg-violet-200'}`}
                         key={day}
                         onClick={() => setCurrentDate(cloneDay)}
                     >

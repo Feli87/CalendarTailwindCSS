@@ -69,7 +69,7 @@ const Calendar = ({busyDays}) => {
                 const cloneDay = day;
                 days.push(
                     <div
-                        className={` shadow-[5px_5px_0px_0px_rgba(109,40,217)]  text-center w-20 h-20 flex justify-center items-center font-bold rounded-md   m-2 border ${!isSameMonth(day, monthStart) ? 'text-gray-400' : ''
+                        className={`relative shadow-[5px_5px_0px_0px_rgba(109,40,217)]  text-center w-20 h-[50px] md:h-[20] flex justify-center items-center font-bold rounded-md   m-2 border ${!isSameMonth(day, monthStart) ? 'text-gray-400' : ''
                             } ${isSameDay(day, currentDate) ? 'bg-violet-800 text-white cursor-pointer ' : (isBefore(day, monthStart) || isAfter(day, monthEnd)) ? 'bg-violet-300 text-gray-800 cursor-pointer' : busyDays.includes(day.toDateString()) ? 'cursor-not-allowed bg-gray-800 text-gray-200 cursor-not-allowed' :
                                             'cursor-pointer bg-white text-gray-800 hover:bg-violet-200 bg-white text-gray-800 hover:bg-violet-200'}`}
                         key={day}
@@ -81,6 +81,7 @@ const Calendar = ({busyDays}) => {
                             }
                         }}
                     >
+                   {busyDays.includes(cloneDay.toDateString()) && <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-violet-400 opacity-75"></span>}
                         {formattedDate}
                     </div>
                 );

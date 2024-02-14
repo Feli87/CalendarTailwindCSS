@@ -34,13 +34,13 @@ body {
 @layer base{
   @font-face {
     font-family: 'TwitchyTV';
-    src: url('/fonts/twitchy.tv.ttf') format('truetype');
+    src: url('/fonts/Twitchy.TV.ttf') format('truetype');
   }
 }
 
 .text-twitchy {
   font-family: 'TwitchyTV';
-  src: url('/fonts/twitchy.tv.ttf') format('truetype');
+  src: url('/fonts/Twitchy.TV.ttf') format('truetype');
 }
 @layer utilities {
   .text-balance {

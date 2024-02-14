@@ -81,7 +81,7 @@ const Calendar = ({busyDays}) => {
                             }
                         }}
                     >
-                   {busyDays.includes(cloneDay.toDateString()) && <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-violet-400 opacity-75"></span>}
+                    {busyDays.includes(cloneDay.toDateString()) && <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-violet-400 opacity-75"></span>}
                         {formattedDate}
                     </div>
                 );

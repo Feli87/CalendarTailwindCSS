@@ -9,7 +9,7 @@ export default function Header() {
             </div>
             <div className="flex items-center mb-5 pb-4">
                 <p
-                    className=" text-twitchy text-5xl [text-shadow:_0px_8px_0px_rgba(255,255,255)] uppercase font-bold bg-[rgb(145,70,255)] bg-clip-text text-transparent">
+                    className="text-twitchy text-5xl [text-shadow:_0px_8px_0px_rgba(255,255,255)] uppercase font-bold bg-[rgb(145,70,255)] bg-clip-text text-transparent">
                     Events Calendar
                 </p>
             </div>

@@ -9,7 +9,7 @@ export default function Home() {
 ];
 
   return (
-    <main className="flex w-[100vw] h-[100vh] flex-col items-center justify-center">
+    <main className="flex w-[100vw] h-[100vh] flex-col items-center justify-start">
       <Header/>
       <DatePikerCustom busyDays={busyDays}/>
     </main>

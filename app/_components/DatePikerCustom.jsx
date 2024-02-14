@@ -1,19 +1,20 @@
+'use client'
 import React, { useState } from 'react';
-import { startOfMonth, startOfWeek, endOfMonth, endOfWeek, addDays, addMonths, subMonths, format, isSameMonth, isSameDay } from 'date-fns';
+import { startOfMonth, startOfWeek, endOfMonth, endOfWeek, addDays, addMonths, subMonths, format, isSameMonth, isSameDay, isBefore, isAfter } from 'date-fns';
 
 const Calendar = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
 
     const renderHeader = () => {
         return (
-            <div className="flex justify-between items-center mb-4">
-                <button className="text-blue-500" onClick={prevMonth}>
+            <div className="flex justify-between items-center mb-4 p-3 rounded-md">
+                <button className="text-white hover:bg-violet-700 p-2 rounded-md" onClick={prevMonth}>
                     Prev
                 </button>
-                <h2 className="text-xl font-bold">
+                <h2 className="text-xl font-bold text-white text-shadow-md shadow-black p-2 rounded-md">
                     {format(currentDate, 'MMMM yyyy')}
                 </h2>
-                <button className="text-blue-500" onClick={nextMonth}>
+                <button className="text-white hover:bg-violet-700 p-2 rounded-md" onClick={nextMonth}>
                     Next
                 </button>
             </div>
@@ -27,7 +28,7 @@ const Calendar = () => {
 
         for (let i = 0; i < 7; i++) {
             days.push(
-                <div className="text-center" key={i}>
+                <div className="text-center text-white bg-violet-500 w-[90px] rounded-md m-1" key={i}>
                     {format(addDays(startDate, i), dateFormat)}
                 </div>
             );
@@ -54,8 +55,8 @@ const Calendar = () => {
                 const cloneDay = day;
                 days.push(
                     <div
-                        className={`text-center border ${!isSameMonth(day, monthStart) ? 'text-gray-400' : ''
-                            } ${isSameDay(day, currentDate) ? 'bg-blue-200' : ''}`}
+                        className={`cursor-pointer shadow-[5px_5px_0px_0px_rgba(109,40,217)]  text-center w-20 h-20 flex justify-center items-center font-bold rounded-md   m-2 border ${!isSameMonth(day, monthStart) ? 'text-gray-400' : ''
+                            } ${isSameDay(day, currentDate) ? 'bg-violet-800 text-white ' : (isBefore(day, monthStart) || isAfter(day, monthEnd)) ? 'bg-violet-300 text-gray-800 ' : 'bg-white text-gray-800 hover:bg-violet-200'}`}
                         key={day}
                         onClick={() => setCurrentDate(cloneDay)}
                     >
@@ -83,7 +84,7 @@ const Calendar = () => {
     };
 
     return (
-        <div className="w-80 mx-auto mt-4">
+        <div className="w-[90vw] max-w-3xl mx-auto mt-4  p-8 rounded-md shadow-[0px_20px_20px_10px_#00000024]">
             {renderHeader()}
             {renderDaysOfWeek()}
             {renderCells()}
@@ -92,3 +93,4 @@ const Calendar = () => {
 };
 
 export default Calendar;
+

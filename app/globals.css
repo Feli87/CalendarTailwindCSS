@@ -31,7 +31,17 @@ body {
     -ms-user-select: none !important;
     -o-user-select: none !important;
 }
+@layer base{
+  @font-face {
+    font-family: 'TwitchyTV';
+    src: url('/fonts/twitchy.tv.ttf') format('truetype');
+  }
+}
 
+.text-twitchy {
+  font-family: 'TwitchyTV';
+  src: url('/fonts/twitchy.tv.ttf') format('truetype');
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

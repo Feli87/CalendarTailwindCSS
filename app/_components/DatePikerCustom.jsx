@@ -17,7 +17,7 @@ import {
 
 const Calendar = ({busyDays}) => {
     const [currentDate, setCurrentDate] = useState(new Date());
-    const [selectedDate, setSelectedDate] = useState(false);
+    
 
     const renderHeader = () => {
         return (
@@ -70,12 +70,12 @@ const Calendar = ({busyDays}) => {
                 days.push(
                     <div
                         className={` shadow-[5px_5px_0px_0px_rgba(109,40,217)]  text-center w-20 h-20 flex justify-center items-center font-bold rounded-md   m-2 border ${!isSameMonth(day, monthStart) ? 'text-gray-400' : ''
-                            } ${isSameDay(day, currentDate) ? 'bg-violet-500 text-white cursor-pointer ' : (isBefore(day, monthStart) || isAfter(day, monthEnd)) ? 'bg-violet-300 text-gray-800 cursor-pointer' : busyDays.includes(day.toDateString()) ? 'cursor-not-allowed bg-gray-800 text-gray-200 cursor-not-allowed' : 'cursor-pointer bg-white text-gray-800 hover:bg-violet-200 bg-white text-gray-800 hover:bg-violet-200'} ${isSameDay(selectedDate, cloneDay) ? 'bg-green-400' : ''
-                            }`}
+                            } ${isSameDay(day, currentDate) ? 'bg-violet-800 text-white cursor-pointer ' : (isBefore(day, monthStart) || isAfter(day, monthEnd)) ? 'bg-violet-300 text-gray-800 cursor-pointer' : busyDays.includes(day.toDateString()) ? 'cursor-not-allowed bg-gray-800 text-gray-200 cursor-not-allowed' :
+                                            'cursor-pointer bg-white text-gray-800 hover:bg-violet-200 bg-white text-gray-800 hover:bg-violet-200'}`}
                         key={day}
                         onClick={() => {
                             if (!busyDays.includes(cloneDay.toDateString())) {
-                                setSelectedDate(cloneDay);
+                                setCurrentDate(cloneDay);
                             }else{
                                 alert('Buzy Day');
                             }

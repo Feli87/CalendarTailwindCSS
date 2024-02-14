@@ -14,33 +14,31 @@
     --background-start-rgb: 100, 100, 200;
     --background-end-rgb: 0, 0, 0;
   }
-
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    -o-user-select: none !important;
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  ),
+  linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-start-rgb)));
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -o-user-select: none !important;
 }
-@layer base{
+@layer base {
   @font-face {
-    font-family: 'TwitchyTV';
-    src: url('/fonts/Twitchy.TV.ttf') format('truetype');
+    font-family: "TwitchyTV";
+    src: url("/fonts/Twitchy.TV.ttf") format("truetype");
   }
 }
 
 .text-twitchy {
-  font-family: 'TwitchyTV';
-  src: url('/fonts/Twitchy.TV.ttf') format('truetype');
+  font-family: "TwitchyTV";
+  src: url("/fonts/Twitchy.TV.ttf") format("truetype");
 }
 @layer utilities {
   .text-balance {

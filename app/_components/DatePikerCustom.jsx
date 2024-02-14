@@ -15,7 +15,7 @@ import {
     isAfter 
 } from 'date-fns';
 
-const Calendar = ({busyDays}) => {
+const Calendar = ({busyDays,setShow}) => {
     const [currentDate, setCurrentDate] = useState(new Date());
     
 
@@ -77,11 +77,11 @@ const Calendar = ({busyDays}) => {
                             if (!busyDays.includes(cloneDay.toDateString())) {
                                 setCurrentDate(cloneDay);
                             }else{
-                                alert('Buzy Day');
+                                setShow(cloneDay.toDateString())
                             }
                         }}
                     >
-                    {busyDays.includes(cloneDay.toDateString()) && <span class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-violet-400 opacity-75"></span>}
+                    {busyDays.includes(cloneDay.toDateString()) && <span className="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-violet-400 opacity-75"></span>}
                         {formattedDate}
                     </div>
                 );
